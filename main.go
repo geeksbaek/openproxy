@@ -96,8 +96,8 @@ var defaultProxySources = []*ProxyBuilder{{
 	},
 }}
 
-// NewProxySource 함수는 빈 ProxySource 구조체를 반환합니다.
-func NewProxySource() *ProxyFactory {
+// NewProxyFactory 함수는 빈 ProxyFactory 구조체를 반환합니다.
+func NewProxyFactory() *ProxyFactory {
 	return &ProxyFactory{}
 }
 
