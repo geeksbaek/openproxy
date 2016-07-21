@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"sync"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -143,7 +144,7 @@ func (pf *ProxyFactory) ProxySource() chan *url.URL {
 		for proxy := range bufCh {
 			proxys = append(proxys, proxy)
 		}
-		proxys = shuffle(proxys)
+		shuffle(proxys)
 		for i := 0; ; i++ {
 			if i == len(proxys) {
 				i = 0
@@ -154,10 +155,10 @@ func (pf *ProxyFactory) ProxySource() chan *url.URL {
 	return retCh
 }
 
-func shuffle(a []*url.URL) []*url.URL {
+func shuffle(a []*url.URL) {
+	rand.Seed(time.Now().UTC().UnixNano())
 	for i := range a {
 		j := rand.Intn(i + 1)
 		a[i], a[j] = a[j], a[i]
 	}
-	return a
 }
