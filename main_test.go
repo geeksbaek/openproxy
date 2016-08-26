@@ -17,7 +17,7 @@ func Test(t *testing.T) {
 func ExampleProxyFactory_ProxySource() {
 	pf := NewProxyFactory()
 	pf.AddDefaultOpenProxySources()
-	for proxy := range pf.ProxySource() {
+	for _ = range pf.ProxySource() {
 		// ...
 	}
 }

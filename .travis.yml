@@ -1,0 +1,7 @@
+language: go
+os:
+  - osx
+  - linux
+  - windows
+go:
+  - tip
